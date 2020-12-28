@@ -12,6 +12,7 @@ import '@/styles/index.scss' // global css
 import App from './App'
 import store from './store'
 import router from './router'
+import { sync } from 'vuex-router-sync'
 
 import './icons' // icon
 import './permission' // permission control
@@ -52,6 +53,8 @@ Object.keys(filters).forEach(key => {
 })
 
 Vue.config.productionTip = false
+
+sync(store, router)
 
 new Vue({
   el: '#app',

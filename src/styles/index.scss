@@ -6,11 +6,15 @@
 @import './btn.scss';
 
 body {
+  font-size: 14px;
   height: 100%;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+  font-family: PingFangSC-Regular, PingFang SC, Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.65);
+  line-height: 22px;
 }
 
 label {
@@ -276,11 +280,13 @@ aside {
   width: 4px;
 }
 .el-button--medium{
-  padding: 9px 15px;
+  // padding: 9px 15px;
 }
 .el-button--primary{
-  background-color: #2a75de;
-  border-color: #2a75de;
+  // background-color: #2a75de;
+  // border-color: #2a75de;
+  background-color: #1890FF;
+  border-color: #1890FF;
   color: #ffffff;
 }
 .el-button--success{
@@ -480,8 +486,8 @@ aside {
   justify-content: space-between;
 }
 .el-form-item__error{
-  margin-top: -19px;
-  font-size: 14px;
+  // margin-top: -19px;
+  font-size: 16px;
 }
 // 去除打开弹框时 fixed-header 的位置偏移
 .el-popup-parent--hidden .fixed-header{

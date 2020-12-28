@@ -1,19 +1,23 @@
 <template>
   <div class="login-container">
+    <div class="loign-header">
+      <img src="@/assets/img/logo.svg" alt="">
+    </div>
     <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" autocomplete="on" label-position="left">
 
       <div class="title-container">
-        <h3 class="title">Login Form</h3>
+        <!-- <h3 class="title">Login Form</h3> -->
+         <img src="@/assets/img/logo_login.svg" alt="">
       </div>
 
       <el-form-item prop="username">
         <span class="svg-container">
-          <svg-icon icon-class="user" />
+          <svg-icon icon-class="user2" />
         </span>
         <el-input
           ref="username"
           v-model="loginForm.username"
-          placeholder="Username"
+          placeholder="用户名"
           name="username"
           type="text"
           tabindex="1"
@@ -24,14 +28,14 @@
       <el-tooltip v-model="capsTooltip" content="Caps lock is On" placement="right" manual>
         <el-form-item prop="password">
           <span class="svg-container">
-            <svg-icon icon-class="password" />
+            <svg-icon icon-class="lock2" />
           </span>
           <el-input
             :key="passwordType"
             ref="password"
             v-model="loginForm.password"
             :type="passwordType"
-            placeholder="Password"
+            placeholder="密码"
             name="password"
             tabindex="2"
             autocomplete="on"
@@ -39,15 +43,23 @@
             @blur="capsTooltip = false"
             @keyup.enter.native="handleLogin"
           />
-          <span class="show-pwd" @click="showPwd">
+          <span class="show-pwd" @click="showPwd" v-if='false'>
             <svg-icon :icon-class="passwordType === 'password' ? 'eye' : 'eye-open'" />
           </span>
         </el-form-item>
       </el-tooltip>
 
-      <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">Login</el-button>
+      <div class="login-pwd">
+        <span class="rember-pwe">
+          <el-checkbox></el-checkbox> 
+          记住密码
+        </span>
+        <span class="forget-pwd">忘记密码</span>
+      </div>
 
-      <div style="position:relative">
+      <el-button class="login-btn" :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">登录</el-button>
+
+      <div style="position:relative; display: none">
         <div class="tips">
           <span>Username : admin</span>
           <span>Password : any</span>
@@ -62,6 +74,10 @@
         </el-button>
       </div>
     </el-form>
+
+    <div class="copyright">
+      Copyright©2020 资产管理系统V1.0
+    </div>
 
     <el-dialog title="Or connect with" :visible.sync="showDialog">
       Can not be simulated on local, so please combine you own business simulation! ! !
@@ -83,22 +99,24 @@ export default {
   data() {
     const validateUsername = (rule, value, callback) => {
       if (!validUsername(value)) {
-        callback(new Error('Please enter the correct user name'))
+        callback(new Error('请输入账户名'))
       } else {
         callback()
       }
     }
     const validatePassword = (rule, value, callback) => {
       if (value.length < 6) {
-        callback(new Error('The password can not be less than 6 digits'))
+        callback(new Error('请输入密码'))
       } else {
         callback()
       }
     }
     return {
       loginForm: {
-        username: 'admin',
-        password: '111111'
+        // username: 'admin',
+        // password: '111111'
+        username: '',
+        password: ''
       },
       loginRules: {
         username: [{ required: true, trigger: 'blur', validator: validateUsername }],
@@ -210,7 +228,7 @@ $cursor: #fff;
 
 @supports (-webkit-mask: none) and (not (cater-color: $cursor)) {
   .login-container .el-input input {
-    color: $cursor;
+    // color: $cursor;
   }
 }
 
@@ -218,7 +236,7 @@ $cursor: #fff;
 .login-container {
   .el-input {
     display: inline-block;
-    height: 47px;
+    height: 40px;
     width: 85%;
 
     input {
@@ -227,28 +245,31 @@ $cursor: #fff;
       -webkit-appearance: none;
       border-radius: 0px;
       padding: 12px 5px 12px 15px;
-      color: $light_gray;
-      height: 47px;
-      caret-color: $cursor;
+      // color: $light_gray;
+      height: 40px;
+      // caret-color: $cursor;
 
       &:-webkit-autofill {
-        box-shadow: 0 0 0px 1000px $bg inset !important;
-        -webkit-text-fill-color: $cursor !important;
+        box-shadow: 0 0 0px 1000px $cursor inset !important;
+        // -webkit-text-fill-color: $cursor !important;
       }
     }
   }
-
   .el-form-item {
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    background: rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
+    // border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid #D9D9D9;
+    // background: rgba(0, 0, 0, 0.1);
+    background: #fff;
+    border-radius: 3px;
     color: #454545;
+    margin-bottom: 24px;
   }
 }
 </style>
 
 <style lang="scss" scoped>
-$bg:#2d3a4b;
+@import '@/assets/custom-theme/variables/blue.scss';
+$bg:#F0F3F7;
 $dark_gray:#889aa4;
 $light_gray:#eee;
 
@@ -258,11 +279,20 @@ $light_gray:#eee;
   background-color: $bg;
   overflow: hidden;
 
+  .loign-header {
+    height: 48px;
+    background: #001529;
+    box-shadow: 0px 1px 4px 0px rgba(0, 21, 41, 0.12);
+    display: flex;
+    align-items: center;
+    padding-left: 16px;
+  }
+
   .login-form {
     position: relative;
-    width: 520px;
+    width: 438px;
     max-width: 100%;
-    padding: 160px 35px 0;
+    padding: 80px 35px 0;
     margin: 0 auto;
     overflow: hidden;
   }
@@ -280,25 +310,50 @@ $light_gray:#eee;
   }
 
   .svg-container {
-    padding: 6px 5px 6px 15px;
+    // padding: 6px 5px 6px 15px;
+    padding: 0 5px 0 15px;
     color: $dark_gray;
-    vertical-align: middle;
+    // vertical-align: middle;
     width: 30px;
     display: inline-block;
   }
 
   .title-container {
     position: relative;
-
-    .title {
-      font-size: 26px;
-      color: $light_gray;
-      margin: 0px auto 40px auto;
-      text-align: center;
-      font-weight: bold;
-    }
+    text-align: center;
+    margin-bottom: 80px;
+    // .title {
+    //   font-size: 26px;
+    //   color: $light_gray;
+    //   margin: 0px auto 40px auto;
+    //   text-align: center;
+    //   font-weight: bold;
+    // }
   }
 
+  .login-btn {
+    height: 40px;
+  }
+
+  .login-pwd {
+    // height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 22px;
+    .forget-pwd {
+      color: $color_11;
+    }
+  }
+  .copyright {
+    position: fixed;
+    text-align: center;
+    left: 50%;
+    bottom: 25px;
+    transform: translateX(-50%);
+
+    
+  }
   .show-pwd {
     position: absolute;
     right: 10px;
