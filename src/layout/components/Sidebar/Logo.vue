@@ -3,13 +3,15 @@
     <transition name="sidebarLogoFade">
       <router-link v-if="collapse" key="collapse" class="sidebar-logo-link" to="/">
         <!-- <img  :src="logo" class="sidebar-logo"> -->
-        <svg-icon v-if="logo" icon-class="logo" class="sidebar-logo" />
-        <h1 v-else class="sidebar-title">{{ title }} </h1>
+        <svg-icon v-if="logo" icon-class="system_logo" class="sidebar-logo" />
+        <!-- <h1 v-else class="sidebar-title">{{ title }} </h1> -->
+        <img :src="title" alt="tilte">
       </router-link>
       <router-link v-else key="expand" class="sidebar-logo-link" to="/">
         <!-- <img v-if="logo" :src="logo" class="sidebar-logo"> -->
-        <svg-icon v-if="logo" icon-class="logo" class="sidebar-logo" />
-        <h1 class="sidebar-title">{{ title }} </h1>
+        <svg-icon v-if="logo" icon-class="system_logo" class="sidebar-logo" />
+        <!-- <h1 class="sidebar-title">{{ title }} </h1> -->
+        <img :src="title" alt="tilte">
       </router-link>
     </transition>
   </div>
@@ -26,8 +28,8 @@ export default {
   },
   data() {
     return {
-      title: '后台管理系统',
-      logo: './src/assets/img/logo.svg'
+      title: require('@/assets/img/system_name.svg'),
+      logo: './src/assets/img/system_logo.svg'
     }
   }
 }
@@ -52,9 +54,9 @@ export default {
 .sidebar-logo-container {
   position: relative;
   width: 100%;
-  height: 60px;
-  line-height: 60px;
-  background: #2b2f3a;
+  height: 48px;
+  line-height: 48px;
+  background: #001529;
   text-align: center;
   overflow: hidden;
 
@@ -85,6 +87,13 @@ export default {
   &.collapse {
     .sidebar-logo {
       margin-right: 0px !important;
+    }
+  }
+
+  .sidebar-logo-link {
+    overflow: hidden;
+    img {
+      vertical-align: middle;
     }
   }
 }

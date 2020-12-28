@@ -16,6 +16,10 @@ import nestedRouter from './modules/example/nested'
 /* 养老服务机构管理router */
 import elderlyOrgManageRouter from './modules/elderly-org-manage'
 
+import purchaseManagementRouter from './modules/purchase-management'
+import personaleCenterRouter from './modules/personal-center'
+import assetsManagementRouter from './modules/assets-management'
+
 /* 系统管理router */
 import systemManageRouter from './modules/system-manage'
 
@@ -111,6 +115,9 @@ export const asyncRoutes = [
   },
   elderlyOrgManageRouter,
   systemManageRouter,
+  purchaseManagementRouter,
+  personaleCenterRouter,
+  assetsManagementRouter,
   {
     path: '/example-pages',
     component: Layout,

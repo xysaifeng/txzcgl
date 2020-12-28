@@ -1,7 +1,7 @@
 <template>
   <div class="navbar">
     <hamburger id="hamburger-container" :is-active="sidebar.opened" class="hamburger-container" @toggleClick="toggleSideBar" />
-    <h2 class="title">上海市养老服务平台</h2>
+    <!-- <h2 class="title">上海市养老服务平台</h2> -->
     <!-- <breadcrumb id="breadcrumb-container" class="breadcrumb-container" /> -->
 
     <div class="right-menu">
@@ -130,15 +130,15 @@ export default {
 
 <style lang="scss" scoped>
 .navbar {
-  height: 60px;
+  height: 48px;
   overflow: hidden;
   position: relative;
   background: #fff;
   box-shadow: 0 1px 4px rgba(0,21,41,.08);
 
   .title{
-    height: 60px;
-    line-height: 60px;
+    height: 48px;
+    line-height: 48px;
     float: left;
     margin: 0;
     color: #ffffff;
@@ -151,7 +151,7 @@ export default {
   }
 
   .hamburger-container {
-    line-height: 60px;
+    line-height: 48px;
     height: 100%;
     float: left;
     cursor: pointer;
@@ -175,7 +175,7 @@ export default {
   .right-menu {
     float: right;
     height: 100%;
-    line-height: 60px;
+    line-height: 48px;
 
     &:focus {
       outline: none;
@@ -219,7 +219,7 @@ export default {
           cursor: pointer;
           position: absolute;
           right: -22px;
-          top: 20px;
+          top: 14px;
           font-size: 18px;
           color: #ededed;
         }
