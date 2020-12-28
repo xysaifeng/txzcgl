@@ -1,0 +1,177 @@
+/* 绿色 主题 */
+@import '../variables/green.scss';
+
+.custom-green {
+  & .sidebar-logo-container{
+    background-color: $color_1;
+  }
+  & .navbar{
+    background-color: $color_1;
+  }
+
+  & .el-menu{
+    .submenu-title-noDropdown{
+      background-color: $color_2 !important;
+    }
+
+    .router-link-exact-active.router-link-active .el-menu-item{
+      color: $color_10 !important;
+      font-weight: bold;
+    }
+
+    .el-submenu{
+      .el-submenu__title{
+        background-color: $color_2 !important;
+      }
+    }
+  }
+
+  & #app .sidebar-container{
+    background-color: $color_2 !important;
+
+    .submenu-title-noDropdown:hover,
+    .el-submenu__title:hover{
+      background-color: $color_3 !important;
+    }
+  }
+
+  & #app .sidebar-container .nest-menu .el-submenu>.el-submenu__title,
+  & #app .sidebar-container .el-submenu .el-menu-item{
+    background-color: $color_4 !important;
+  }
+
+  & #app .sidebar-container .nest-menu .el-submenu>.el-submenu__title:hover,
+  & #app .sidebar-container .el-submenu .el-menu-item:hover{
+    background-color: $color_5 !important;
+  }
+
+
+  & #app .sidebar-container .el-menu > div >.el-submenu>.el-menu>.nest-menu>.el-submenu>.el-menu>.nest-menu .el-menu-item{
+    background-color: $color_6 !important;
+  }
+  & #app .sidebar-container .el-menu > div >.el-submenu>.el-menu>.nest-menu>.el-submenu>.el-menu>.nest-menu .el-menu-item:hover{
+    background-color: $color_7 !important;
+  }
+
+  .tags-view-container .tags-view-wrapper .tags-view-item:hover{
+    background-color: $color_9 !important;
+    color: $color_10 !important;
+  }
+  .tags-view-container .tags-view-wrapper .tags-view-item.active{
+    background-color: $color_8 !important;
+    color: $color_10 !important;
+  }
+  .tags-view-wrapper .tags-view-item .el-icon-close:hover{
+    color: $color_10 !important;
+  }
+  .el-checkbox__input.is-checked+.el-checkbox__label,
+  .el-radio__input.is-checked+.el-radio__label,
+  .el-date-table td.today span,
+  .el-date-table td.available:hover{
+    color: $color_11 !important;
+  }
+  .el-checkbox__input.is-checked .el-checkbox__inner,
+  .el-radio__input.is-checked .el-radio__inner,
+  .el-checkbox__input.is-indeterminate .el-checkbox__inner{
+    background-color: $color_11 !important;
+    border-color: $color_11 !important;
+  }
+  .el-input__inner:hover,
+  .el-input__inner:focus,
+  .el-input__inner:active,
+  .el-checkbox__inner:hover,
+  .el-checkbox__inner:focus,
+  .el-checkbox__inner:active,
+  .el-radio__inner:hover,
+  .el-radio__inner:focus,
+  .el-radio__inner:active,
+  .el-range-editor.is-active{
+    border-color: $color_11 !important;
+  }
+  .el-pagination.is-background .el-pager li:not(.disabled).active,
+  .el-pagination.is-background .el-pager li:not(.disabled).active:hover,
+  .el-date-table td.start-date span, .el-date-table td.end-date span{
+    background-color: $color_11 !important;
+    color: #ffffff !important;
+  }
+  .el-pagination.is-background .btn-prev:hover,
+  .el-pagination.is-background .btn-next:hover,
+  .el-pagination.is-background .el-pager li:hover{
+    color: $color_11 !important;
+  }
+  .el-dropdown-menu__item:not(.is-disabled):hover,
+  .el-dropdown-menu__item:focus{
+    background-color: $color_9 !important;
+    color: $color_11 !important;
+  }
+  // 换肤按钮样式
+  .change-skin-cancel-btn:hover,
+  .change-skin-cancel-btn:focus,
+  .change-skin-cancel-btn:active{
+    background-color: $color_9 !important;
+    border-color: $color_10 !important;
+    color: $color_10 !important;
+  }
+  .change-skin-confirm-btn,
+  .change-skin-confirm-btn:focus,
+  .change-skin-confirm-btn:active{
+    background-color: $color_10 !important;
+    border-color: $color_10 !important;
+  }
+  .change-skin-confirm-btn:hover{
+    background-color: $color_10 !important;
+    border-color: $color_10 !important;
+  }
+  .reset-btn-custom:hover{
+    border-color: $color_10 !important;
+    color: $color_10 !important;
+    background-color: $color_8 !important;
+  }
+  .reset-btn-custom.is-disabled,
+  .reset-btn-custom.is-disabled:focus,
+  .reset-btn-custom.is-disabled:active,
+  .reset-btn-custom.is-disabled:hover{
+    background-color: #fff !important;
+    border-color: #e6ebf5 !important;
+    color: #C0C4CC !important;
+  }
+  // 显示表格数据的文本样式
+  .table-total-panel-custom{
+    & > span{
+      color: $color_11 !important;
+    }
+  }
+  // tabs card 切换面板样式自定义
+  .tabs-card-panel-custom{
+    & .tabs-list{
+      border-color: $color_11 !important;
+      & > .tabs-list-in{
+        &::before{
+          border-left: 25px $color_11 solid !important;
+        }
+      }
+      &::before{
+        border-left: 25px $color_11 solid !important;
+      }
+    }
+    & .tabs-list:hover{
+      background-color: $color_9 !important;
+      & > .tabs-list-in{
+        &::after{
+          border-left: 25px $color_9 solid !important;
+        }
+      }
+    }
+    & .tabs-list.active{
+      background-color: $color_11 !important;
+      & > .tabs-list-in{
+        &::after{
+          border-left: 25px $color_11 solid !important;
+        }
+      }
+    }
+  }
+  .preview-btn-custom{
+    color: $color_11 !important;
+  }
+}
